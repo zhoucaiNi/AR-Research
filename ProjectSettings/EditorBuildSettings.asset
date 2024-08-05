@@ -29,9 +29,42 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/grab-poke-change_deskColor-ok.unity
     guid: 41a3adfea6b92a341bb402f6d84ca2a6
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/poke_selectWall-ok.unity
     guid: 5a6c2f7071ea8ea44ae4d11d37f9292b
+  - enabled: 0
+    path: Assets/Scenes/poke_selectWall-directly.unity
+    guid: a0683fdb7c0ff414ca2aab3f8e970a3b
+  - enabled: 0
+    path: Assets/Scenes/Passthrough_SpatialAnchor.unity
+    guid: ea8b39e843506b64fab592cbe2f4dca2
+  - enabled: 0
+    path: Assets/Scenes/Passthrough_SpatialAnchor_grababble.unity
+    guid: c0b5ed9800dd52b4486186729a0f98bb
+  - enabled: 0
+    path: Assets/Scenes/radial-UI-with spatial anchor.unity
+    guid: 8a4df9439d7427244a6cb7841082e105
+  - enabled: 0
+    path: Assets/Scenes/radial-UI-with spatial anchor_hand_attached_UI.unity
+    guid: 138dd4242e5557c449d46b2526654eb2
+  - enabled: 0
+    path: Assets/Scenes/radial-UI-with spatial anchor_hand_attached_UI2.unity
+    guid: 5845143bd46fe3f44966b392d96a3a33
+  - enabled: 0
+    path: Assets/Scenes/poke_selectWall-ok2.unity
+    guid: 74ce0ff04cf5b804b9ac11f54e0434b1
+  - enabled: 0
+    path: Assets/Scenes/radial-UI-with spatial anchor_hand_attached_UI3.unity
+    guid: a8b7eb909526c0143b661936bb4d08ed
+  - enabled: 0
+    path: Assets/Scenes/radial-UI-with spatial anchor_hand_attached_UI-selectwall_test.unity
+    guid: 0666aa25a66683449bd80f5fbcbe9750
+  - enabled: 0
+    path: Assets/Scenes/radial-UI-with spatial anchor_hand_attached_UI4.unity
+    guid: 8895b244bb13b9c4987d9c72f26c0dd5
+  - enabled: 1
+    path: Assets/Scenes/radial-UI-with spatial anchor_hand_attached_UI5.unity
+    guid: f0221207ac794694c89ff2e5ea0194b1
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: aab52fe9933a3e94c96142de53d90e32, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: b71ce9676d9e16b4ab6f2741ca99e790, type: 2}
