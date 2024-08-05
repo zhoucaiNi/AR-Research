@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{099650F0-D738-3D83-ACFC-C821157BF002}</ProjectGuid>
+    <ProjectGuid>{9204E8ED-86CD-76A6-4250-D732C8D6B8E8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -64,11 +64,11 @@
     <Compile Include="Assets/RadialSelection.cs" />
     <Compile Include="Assets/VisibilityToggle.cs" />
     <Compile Include="Assets/WallSelectorRaycast.cs" />
-    <Compile Include="Assets/SpawnBall.cs" />
     <Compile Include="Assets/WallInteractionManager.cs" />
+    <Compile Include="Assets/spawnball.cs" />
     <Compile Include="Assets/FurnitureInteractable.cs" />
     <Compile Include="Assets/FurnitureManager.cs" />
-    <Compile Include="Assets/DisplayLabel.cs" />
+    <Compile Include="Assets/displayLabel.cs" />
     <Compile Include="Assets/SetColorFromList.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1512,11 +1512,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Unity.XR.Interaction.Toolkit.Samples.StarterAssets.Editor.csproj">
-      <Project>{CF1A1138-8E3A-4A3A-3B0D-22098203EB0A}</Project>
+      <Project>{14250F3B-71DC-5719-1F5B-8EE54DC583D9}</Project>
       <Name>Unity.XR.Interaction.Toolkit.Samples.StarterAssets.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.XR.Interaction.Toolkit.Samples.StarterAssets.csproj">
-      <Project>{674A6806-26CC-9290-3174-EEE738FAE5D3}</Project>
+      <Project>{2D1F729B-A518-E151-DDAC-93306BCFE132}</Project>
       <Name>Unity.XR.Interaction.Toolkit.Samples.StarterAssets</Name>
     </ProjectReference>
   </ItemGroup>
