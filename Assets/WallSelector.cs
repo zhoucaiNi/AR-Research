@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// testing
 public class WallSelector : MonoBehaviour
 {
     public GameObject[] wallPrefabs; // Array to store wall prefabs
