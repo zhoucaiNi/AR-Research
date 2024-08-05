@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 0
+    path: Assets/Samples/Meta XR Interaction SDK/66.0.0/Example Scenes/ComprehensiveRigExample.unity
+    guid: 2efe93cb8972cae439bfba2dcd4165f0
+  - enabled: 0
+    path: Assets/Scenes/SampleScene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 0
+    path: Assets/grabbable_interior.unity
+    guid: d799089d849aeb843afffba4988dfdd7
+  - enabled: 0
+    path: Assets/Scenes/passthrough_grababble.unity
+    guid: 306e3c86a08294747abd024a72bba86b
+  - enabled: 0
+    path: Assets/Scenes/grab-poke-change_deskColor.unity
+    guid: b0eec72212e731a4f9c604ce2df3d8df
+  - enabled: 0
+    path: Assets/Scenes/hand-transparentUI.unity
+    guid: 79d89115542958349b204e46172fc499
+  - enabled: 0
+    path: Assets/Scenes/grab-poke-change_deskColor-test---.unity
+    guid: f12f17e1cbe7fd146b3129d42a57d68f
+  - enabled: 0
+    path: Assets/Scenes/grab-poke-change_deskColor-ok.unity
+    guid: 41a3adfea6b92a341bb402f6d84ca2a6
+  - enabled: 1
+    path: Assets/Scenes/poke_selectWall-ok.unity
+    guid: 5a6c2f7071ea8ea44ae4d11d37f9292b
+  m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: aab52fe9933a3e94c96142de53d90e32, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: b71ce9676d9e16b4ab6f2741ca99e790, type: 2}
