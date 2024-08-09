@@ -1,9 +1,9 @@
 {
-    "m_SelectedDeviceId": "2G0YC1ZG2P00RJ",
+    "m_SelectedDeviceId": "2G0YC1ZG3T0B5D",
     "m_SelectedProcess": {
-        "deviceId": "2G0YC1ZG2P00RJ",
-        "name": "com.DefaultCompany.Myproject1",
-        "processId": 7153,
+        "deviceId": "",
+        "name": "",
+        "processId": 0,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -42,6 +42,12 @@
             "deviceId": "2G0YC1ZG2P00RJ",
             "name": "com.DefaultCompany.Myproject1",
             "processId": 7153,
+            "exited": false
+        },
+        {
+            "deviceId": "2G0YC1ZG3T0B5D",
+            "name": "com.DefaultCompany.Myproject1",
+            "processId": 8748,
             "exited": false
         }
     ],
