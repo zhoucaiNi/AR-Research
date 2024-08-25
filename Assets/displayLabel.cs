@@ -20,6 +20,9 @@ public class displayLabel : MonoBehaviour
     public MaterialTilingSettings[] materialSettings; // Array to store tiling settings for each material
     //public GameObject passthroughLayerObject; // This should have the OVRPassthroughLayer component if using Oculus Passthrough
 
+    public GameObject furnitureManagerPrefab; // Reference to the FurnitureManager prefab
+    public GameObject bathUICanvasPrefab; // Reference to the Bath_UI_Canvas prefab
+
     private List<Renderer> currentEffectMeshRenderers = new List<Renderer>();
     private int currentWallIndex = -1;
 
@@ -40,11 +43,11 @@ public class displayLabel : MonoBehaviour
         if (hasHit)
         {
             Debug.Log("Raycast hit detected.");
-            if (OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger))
+            if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
             {
                 Vector3 hitPoint = hit.point;
                 Vector3 hitNormal = hit.normal;
-                string label = anchor.AnchorLabels[0]; // Assuming 'Label' is a public property
+                string label = anchor.AnchorLabels[0];  // Use 'Label' instead of 'AnchorLabels'
 
                 debugText.transform.position = hitPoint;
                 debugText.transform.rotation = Quaternion.LookRotation(-hitNormal);
@@ -52,6 +55,34 @@ public class displayLabel : MonoBehaviour
 
                 currentWallIndex = anchor.GetInstanceID(); // Use the instance ID to track the current wall
                 Debug.Log($"Wall selected with instance ID: {currentWallIndex}");
+
+                // Instantiate the FurnitureManager and attach it to the wall
+                GameObject furnitureManagerInstance = Instantiate(furnitureManagerPrefab, hitPoint, Quaternion.identity);
+                furnitureManagerInstance.transform.SetParent(anchor.transform, true);
+
+                // Adjust the spawn position to move it 0.1 units in front of the wall
+                Vector3 adjustedPosition = hitPoint + hitNormal * 0.1f;
+                furnitureManagerInstance.transform.position = adjustedPosition;
+
+                // Set the rotation to face the wall
+                furnitureManagerInstance.transform.rotation = Quaternion.LookRotation(hitNormal);
+
+                // Pass the label to the FurnitureManager
+                FurnitureManager furnitureManager = furnitureManagerInstance.GetComponent<FurnitureManager>();
+                if (furnitureManager != null)
+                {
+                    furnitureManager.SetLabel(label);
+                }
+
+                // Instantiate the Bath_UI_Canvas and attach it to the anchor's game object
+                GameObject bathUICanvasInstance = Instantiate(bathUICanvasPrefab, anchor.transform.position, Quaternion.identity);
+                bathUICanvasInstance.transform.SetParent(anchor.transform, true);
+
+                // Adjust the spawn position to move it 0.1 units in front of the wall
+                bathUICanvasInstance.transform.position = anchor.transform.position + hitNormal * 0.6f;
+
+                // Set the rotation to face the wall
+                bathUICanvasInstance.transform.rotation = Quaternion.LookRotation(hitNormal);
             }
         }
         else
@@ -59,6 +90,7 @@ public class displayLabel : MonoBehaviour
             Debug.Log("No hit detected.");
         }
     }
+
 
     public void ApplyMaterial(int materialIndex)
     {
@@ -103,6 +135,8 @@ public class displayLabel : MonoBehaviour
         MaterialTilingSettings settings = materialSettings[materialIndex];
 
         Vector2 tiling;
+        float adjustmentFactor = 0.657f; // Adjust this factor as needed
+
         if (wallSize.y >= wallSize.x && wallSize.z >= wallSize.x)
         {
             tiling = new Vector2(
@@ -113,8 +147,8 @@ public class displayLabel : MonoBehaviour
         else if (wallSize.x >= wallSize.y && wallSize.z >= wallSize.y)
         {
             tiling = new Vector2(
-                wallSize.x / settings.tileDimensions.x,
-                wallSize.z / settings.tileDimensions.y
+                (wallSize.x / settings.tileDimensions.x) * adjustmentFactor,
+                (wallSize.z / settings.tileDimensions.y) * adjustmentFactor
             );
         }
         else
@@ -129,10 +163,6 @@ public class displayLabel : MonoBehaviour
         renderer.material.SetFloat("_YTiling", tiling.y);
         Debug.Log($"Adjusted Tiling: {tiling} on renderer with material index: {materialIndex}");
     }
-
-
-
-
 
     private MRUKAnchor FindAnchorByInstanceID(int instanceID)
     {
