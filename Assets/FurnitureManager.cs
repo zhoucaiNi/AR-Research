@@ -1,9 +1,9 @@
+using Oculus.Interaction;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class FurnitureManager : MonoBehaviour
 {
-    public Button[] toggleButtons; // Assign the UI Buttons in the Inspector
+    public GameObject[] toggleButtons; // Assign the interactable prefabs in the Inspector
     public GameObject[] furnitureItems; // Assign the furniture items in the Inspector
     private Vector3[] originalPositions; // Array to store the original positions of the furniture items
     private Quaternion[] originalRotations; // Array to store the original rotations of the furniture items
@@ -11,6 +11,8 @@ public class FurnitureManager : MonoBehaviour
 
     void Start()
     {
+        Debug.Log("Start method called.");
+
         // Initialize the original positions and rotations arrays
         originalPositions = new Vector3[furnitureItems.Length];
         originalRotations = new Quaternion[furnitureItems.Length];
@@ -26,11 +28,20 @@ public class FurnitureManager : MonoBehaviour
             }
         }
 
-        // Add listeners to the buttons
+        // Add listeners to the interactable prefabs
         for (int i = 0; i < toggleButtons.Length; i++)
         {
             int index = i; // Capture the current index
-            toggleButtons[i].onClick.AddListener(() => ToggleVisibility(index));
+            var interactable = toggleButtons[i].GetComponent<InteractableUnityEventWrapper>();
+            if (interactable != null)
+            {
+                Debug.Log($"Adding listener to interactable {toggleButtons[i].name}");
+                interactable.WhenSelect.AddListener(() => ToggleVisibility(index)); // Use the correct event
+            }
+            else
+            {
+                Debug.LogError($"No InteractableUnityEventWrapper component found on {toggleButtons[i].name}");
+            }
         }
     }
 
@@ -41,6 +52,8 @@ public class FurnitureManager : MonoBehaviour
 
     void ToggleVisibility(int index)
     {
+        Debug.Log($"ToggleVisibility called for index {index}");
+
         if (furnitureItems[index] != null)
         {
             bool isActive = furnitureItems[index].activeSelf;
@@ -70,7 +83,6 @@ public class FurnitureManager : MonoBehaviour
             }
         }
     }
-
 
     Quaternion GetAlignedRotation()
     {
